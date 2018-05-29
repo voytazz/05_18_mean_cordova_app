@@ -1,20 +1,22 @@
-import express = require('express')
-import errorHandler = require('errorhandler')
-import cors = require('cors')
-import bodyParser = require('body-parser')
-import path = require('path')
+import * as express from 'express'
+import * as errorHandler from 'errorhandler'
+import * as bodyParser from 'body-parser'
+import * as cors from 'cors'
+import * as path from 'path'
 
-import homeControler from '../controlers/homeControler'
+import router from '../controllers/router'
 
 class App {
   constructor(
     private app = express(),
+    private router = express.Router(),
     private settingsArray = [
       bodyParser.json(),
       bodyParser.urlencoded({ extended: true }),
       cors(),
       errorHandler(),
-      express.static(path.join(__dirname, '../public'))
+      express.static(path.join(__dirname, '../public')),
+      express.static(path.join(__dirname, '../'))
     ]
   ) {}
 
@@ -22,7 +24,7 @@ class App {
     this.settingsArray.forEach(option => {
       this.app.use(option)
     })
-    this.app.use('/', homeControler)
+    this.app.use('/', router)
   }
 
   startServer(port = process.env.PORT || 8080) {

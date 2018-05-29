@@ -1,0 +1,25 @@
+form(
+    (submit) = 'onLoginSubmit()'
+  )
+  div
+    label
+      | Username
+    input(
+        type = 'text',
+        '[(ngModel)]' = 'nick',
+        name = 'nick'
+      )
+  div
+    label
+      | Password
+    input(
+        type = 'password',
+        '[(ngModel)]' = 'password',
+        name = 'password'
+      )
+  div
+    input(
+        type = 'submit',
+        [value] = 'submit'
+      )
+

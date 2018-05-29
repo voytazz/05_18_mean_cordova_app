@@ -1,0 +1,33 @@
+
+<nav class="navbar">navbar
+  <div class="navbar__burger-menu-container" id="burger"><a class="navbar__burger-menu__link" (click)="showList(&quot;menu&quot;)">
+      <div><span></span><span></span><span></span></div></a>
+    <ul class="hide" id="menu">
+      <ng-container>
+        <ul>
+          <li><a id="home" (click)="routerLink($event)">{{ menuList.home }}</a></li>
+        </ul>
+      </ng-container>
+      <ng-container *ngIf="loggedIn">
+        <ul>
+          <li>Konto
+            <ul>
+              <li><a id="login" (click)="routerLink($event)">{{ menuList.login }}</a></li>
+              <li><a id="register" (click)="routerLink($event)">{{ menuList.register }}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-container *ngIf="!loggedIn">
+        <ul>
+          <li>Notatki
+            <ul>
+              <li><a id="profile" (click)="routerLink($event)">{{ menuList.profile }}</a></li>
+              <li><a id="logout" (click)="onLogOut()">{{ menuList.logout }}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </ng-container>
+    </ul>
+  </div>
+</nav>

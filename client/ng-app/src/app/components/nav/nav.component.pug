@@ -1,0 +1,70 @@
+nav.navbar
+  | navbar
+  //----------------------------
+  //- BURGER MENU
+  //----------------------------
+  div.navbar__burger-menu-container(
+      id='burger'
+    )
+    a.navbar__burger-menu__link(
+        (click)='showList("menu")'
+      )
+      div
+        span
+        span
+        span
+    //--------------------------
+    //- MENU
+    //--------------------------
+    ul.hide(
+        id='menu'
+      )
+      //--------------------------
+      //- ROUTING LOOP LIST
+      //--------------------------
+      ng-container
+        ul
+          li
+            a(
+                id = 'home',
+                (click) = 'routerLink($event)'
+              )
+              | {{ menuList.home }}
+      ng-container(
+          *ngIf='loggedIn'
+        )
+        ul
+          li
+            | Konto
+            ul
+              li
+                a(
+                    id = 'login',
+                    (click) = 'routerLink($event)'
+                  )
+                  | {{ menuList.login }}
+              li
+                a(
+                    id = 'register',
+                    (click) = 'routerLink($event)'
+                  )
+                  | {{ menuList.register }}
+      ng-container(
+        *ngIf='!loggedIn'
+        )
+        ul
+          li
+            | Notatki
+            ul
+              li
+                a(
+                    id = 'profile',
+                    (click) = 'routerLink($event)'
+                  )
+                  | {{ menuList.profile }}
+              li
+                a(
+                    id = 'logout',
+                    (click) = 'onLogOut()'
+                  )
+                  | {{ menuList.logout }}

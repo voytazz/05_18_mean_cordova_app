@@ -3,13 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "run-p pug-it:w server",
     "build": "run-p build-mobile build-ng",
     "build-mobile": "ng build --output-path ../../mobile/cordova-app/www/ --prod",
-    "build-ng": "ng build --prod",
+    "build-ng": "ng build",
+    "build-ng-prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pug-it:w": "pug src -P -w",
+    "server": "ng serve"
   },
   "private": true,
   "dependencies": {
@@ -22,8 +25,10 @@
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
+    "@auth0/angular-jwt": "^2.0.0",
     "core-js": "^2.5.4",
-    "rxjs": "^6.0.0",
+    "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.2.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -43,10 +48,12 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "node-sass": "^4.9.0",
+    "npm-run-all": "^4.1.3",
     "protractor": "~5.3.0",
+    "pu": "^3.1.0",
+    "pug-cli": "^1.0.0-alpha6",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
-    "typescript": "~2.7.2",
-    "npm-run-all": "^4.1.2"
+    "typescript": "~2.7.2"
   }
 }
