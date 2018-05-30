@@ -3,7 +3,6 @@ import * as path from 'path'
 
 class Profile {
   profile(req: any, res: any, next: any) {
-    console.log(req.body)
     res.json({ user: req.user })
   }
 }

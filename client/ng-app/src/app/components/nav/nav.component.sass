@@ -1,0 +1,184 @@
+.nav
+
+
+  .nav-success__container
+    position: absolute
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 100
+    top: 0px
+    left: 0px
+    height: 100vh
+    width: calc(100vw - 15px)
+
+
+    .nav-success__header-container
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      height: 300px
+      width: 300px
+      border-radius: 150px
+      padding: 20px
+      box-shadow: 0 0 15px 5px $color-shadow
+
+      background: linear-gradient($container-color * 1.5, $container-color * 0.5)
+
+
+      .nav-success__header
+        font-size: $text-size * 2
+        padding: 10px
+
+
+  .navbar
+    position: fixed
+    z-index: 200
+    width: 100vw
+    display: flex
+    justify-content: space-between
+    box-shadow: 0 0 15px 5px $color-shadow
+
+    background: linear-gradient($container-color2 * 1.2, $container-color2 * 0.8)
+
+
+
+    .navbar-home__container
+
+
+      .navbar-home__list
+
+
+        .navbar-home__list-item
+
+
+          .navbar-home__link
+            display: block
+
+
+            .navbar-home-img
+              height: 10vh
+              padding: 10px 20px
+
+              filter: invert(0.2)
+
+              &:hover
+                filter: invert(0.9)
+
+
+    .navbar-android__container
+
+
+      .navbar-android__list
+
+
+        .navbar-android__list-item
+
+
+          .navbar-android__link
+            display: block
+
+
+            .navbar-android-img
+              height: 10vh
+              padding: 10px 20px
+
+              filter: invert(0.2)
+
+              &:hover
+                filter: invert(0.9)
+
+
+    .navbar-account__container
+
+
+      .navbar-account__list
+
+
+        .navbar-account__list-item
+
+
+          .navbar-account__link
+            display: block
+
+
+            .navbar-account-img
+              height: 10vh
+              padding: 10px 20px
+
+              filter: invert(0.2)
+
+
+              &:hover
+                filter: invert(0.9)
+
+            .navbar-account__sublist__container
+              position: fixed
+              display: flex
+              justify-content: center
+              align-items: center
+              top: 0px
+              left: 0px
+              height: 100vh
+              width: 100vw
+
+
+              .navbar-account__sublist
+                display: flex
+                flex-direction: column
+                max-width: 500px
+                width: 80vw
+                box-shadow: 0 0 15px 5px $color-shadow
+                border-radius: 3px
+
+                background: linear-gradient($container-color * 1.2, $container-color * 0.8)
+
+
+                .navbar-account__login__list-item
+                  @extend .list-item
+
+
+                  .navbar-account__login__link
+                    @extend .link
+
+
+                .navbar-account__register__list-item
+                  @extend .list-item
+
+
+                  .navbar-account__register__link
+                    @extend .link
+
+
+                .navbar-account__profile__list-item
+                  @extend .list-item
+
+
+                  .navbar-account__profile__link
+                    @extend .link
+
+
+                .navbar-account__logout__list-item
+                  @extend .list-item
+
+
+                  .navbar-account__logout__link
+                    @extend .link
+
+
+.link
+  text-align: center
+  display: block
+  padding: 10px
+  border-radius: 3px
+  font-weight: bold
+  font-size: $text-size * 2
+  box-shadow: 0 0 15px 5px $color-shadow
+  background: linear-gradient($color-form * 1.3, $color-form * 0.7)
+
+.list-item
+  padding: 20px
+
+.hoverLink
+  filter: invert(0.9)

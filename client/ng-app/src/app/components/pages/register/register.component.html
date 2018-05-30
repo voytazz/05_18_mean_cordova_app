@@ -1,12 +1,27 @@
 
-<form (submit)="onRegisterSubmit()">
-  <div>
-    <label>Nick</label>
-    <input type="text" [(ngModel)]="nick" name="nick"/>
+<section class="register">
+  <div class="registred-success__container hidden animation-ctr" id="successMessageContainer">
+    <div class="registred-success__header-container opacity-0 animation-ctr" id="successMessage">
+      <h2 class="registred-success__header">{{ message[0] }}</h2>
+      <h2 class="registred-success__header">{{ message[1] }}</h2>
+    </div>
   </div>
-  <div>
-    <label>Password</label>
-    <input type="password" [(ngModel)]="password" name="password"/>
+  <div class="register-form-container opacity-0 animation-ctr" id="page">
+    <form class="register-form" (submit)="onRegisterSubmit()">
+      <div class="register-form__header-container">
+        <h2 class="register-form__header">{{ label.header }}</h2>
+      </div>
+      <div class="register-form__nick-container">
+        <label class="register-form__nick-label">{{ label.login }}</label>
+        <input class="register-form__nick-input" type="text" [(ngModel)]="nick" name="nick"/>
+      </div>
+      <div class="register-form__password-container">
+        <label class="register-password-label">{{ label.password }}</label>
+        <input class="register-form__password-input" type="password" [(ngModel)]="password" name="password"/>
+      </div>
+      <div class="register-form__submit-container">
+        <input class="register-form__submit-input" type="submit" [value]="label.submit"/>
+      </div>
+    </form>
   </div>
-  <input type="submit" value="Submit"/>
-</form>
+</section>

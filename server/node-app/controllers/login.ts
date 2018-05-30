@@ -4,12 +4,10 @@ import userModel from '../models/userModel'
 
 class Login {
   login(req: any, res: any, next: any) {
-    console.log(req.body)
     const newUser = {
       nick: req.body.nick,
       password: req.body.password
     }
-    console.log(newUser)
 
     userModel.getUserByNick(newUser, (err: any, user: any) => {
       if (err) throw err

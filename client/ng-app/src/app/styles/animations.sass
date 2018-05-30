@@ -1,0 +1,36 @@
+.hidden
+  visibility: hidden
+
+
+.opacity-0
+  opacity: 0
+  transform: scale3d(0.9, 0.9, 0.9)
+
+
+.opacity-1
+  opacity: 1
+  transform: scale3d(1, 1, 1)
+
+
+.visible
+  visibility: visible
+
+
+.animation-ctr
+  transition: all 0.5s
+
+
+@keyframes click
+  0%
+    transform: scale3d(1, 1, 1)
+    color: $text-color
+  50%
+    transform: scale3d(0.9, 0.9, 0.9)
+    color: $text-color-light
+  100%
+    transform: scale3d(1, 1, 1)
+    color: $text-color
+
+
+.animation-click
+  animation: click 0.2s

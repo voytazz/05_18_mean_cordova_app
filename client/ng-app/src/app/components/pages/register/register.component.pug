@@ -1,23 +1,71 @@
-form(
-    (submit)='onRegisterSubmit()'
-  )
-  div
-    label
-      | Nick
-    input(
-        type='text',
-        [(ngModel)]='nick',
-        name='nick'
-      )
-  div
-    label
-      | Password
-    input(
-        type='password',
-        [(ngModel)]='password',
-        name='password'
-      )
-  input(
-      type='submit',
-      value='Submit'
+section.register
+  //----------------------------
+  //-
+  //-   MESSAGE
+  //-
+  //----------------------------
+  div.registred-success__container.hidden.animation-ctr(
+      id = 'successMessageContainer'
     )
+    div.registred-success__header-container.opacity-0.animation-ctr(
+        id = 'successMessage'
+      )
+      h2.registred-success__header
+        | {{ message[0] }}
+      h2.registred-success__header
+        | {{ message[1] }}
+  //----------------------------
+  //-
+  //-   REGISTER FORM
+  //-
+  //----------------------------
+  div.register-form-container.opacity-0.animation-ctr(
+      id = 'page'
+    )
+    form.register-form(
+        (submit)='onRegisterSubmit()'
+      )
+      //----------------------------
+      //-
+      //-   HEADER
+      //-
+      //----------------------------
+      div.register-form__header-container
+        h2.register-form__header
+          | {{ label.header }}
+      //----------------------------
+      //-
+      //-   NICK
+      //-
+      //----------------------------
+      div.register-form__nick-container
+        label.register-form__nick-label
+          | {{ label.login }}
+        input.register-form__nick-input(
+            type='text',
+            [(ngModel)]='nick',
+            name='nick'
+          )
+      //----------------------------
+      //-
+      //-   PASSWORD
+      //-
+      //----------------------------
+      div.register-form__password-container
+        label.register-password-label
+          | {{ label.password }}
+        input.register-form__password-input(
+            type='password',
+            [(ngModel)]='password',
+            name='password'
+          )
+      //----------------------------
+      //-
+      //-   SUBMIT
+      //-
+      //----------------------------
+      div.register-form__submit-container
+        input.register-form__submit-input(
+          type='submit',
+          [value]='label.submit'
+        )

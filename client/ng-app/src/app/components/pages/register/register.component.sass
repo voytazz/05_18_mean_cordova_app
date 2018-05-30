@@ -1,0 +1,89 @@
+.register
+  margin: auto
+  max-width: 600px
+
+
+  .registred-success__container
+    position: absolute
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 100
+    top: 0px
+    left: 0px
+    height: 100vh
+    width: 100vw
+
+
+    .registred-success__header-container
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      height: 300px
+      width: 300px
+      border-radius: 150px
+      padding: 20px
+      box-shadow: 0 0 15px 5px $color-shadow
+
+      background: linear-gradient($container-color * 1.5, $container-color * 0.5)
+
+
+      .registred-success__header
+        font-size: $text-size * 2
+        padding: 10px
+
+
+  .register-form-container
+    margin: 10px
+    display: flex
+    justify-content: center
+    border-radius: 3px
+    box-shadow: 0 0 5px $color-shadow
+
+    background: linear-gradient($container-color * 1.5, $container-color * 0.5)
+
+
+    .register-form
+      display: flex
+      flex-direction: column
+      width: calc(100% - 20px)
+
+      .register-form__header-container
+        display: flex
+        flex-direction: column
+
+        .register-form__header
+          padding: 10px
+          text-align: center
+
+
+      .register-form__nick-container
+        display: flex
+        flex-direction: column
+
+
+        .register-form__nick-label
+
+
+        .register-form__nick-input
+
+
+      .register-form__password-container
+        display: flex
+        flex-direction: column
+
+
+        .register-password-label
+
+
+        .register-form__password-input
+
+
+      .register-form__submit-container
+        display: flex
+        flex-direction: column
+
+
+        .register-form__submit-input
+          flex-grow: 1

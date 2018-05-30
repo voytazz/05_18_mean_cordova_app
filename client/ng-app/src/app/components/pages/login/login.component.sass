@@ -1,0 +1,89 @@
+.login
+  margin: auto
+  max-width: 600px
+
+
+  .logged-success__container
+    position: absolute
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 100
+    top: 0px
+    left: 0px
+    height: 100vh
+    width: 100vw
+
+
+    .logged-success__header-container
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      height: 300px
+      width: 300px
+      border-radius: 150px
+      padding: 20px
+      box-shadow: 0 0 15px 5px $color-shadow
+
+      background: linear-gradient($container-color * 1.5, $container-color * 0.5)
+
+
+      .logged-success__header
+        font-size: $text-size * 2
+        padding: 10px
+
+
+  .login-form-container
+    margin: 10px
+    display: flex
+    justify-content: center
+    border-radius: 3px
+    box-shadow: 0 0 5px $color-shadow
+
+    background: linear-gradient($container-color * 1.5, $container-color * 0.5)
+
+
+    .login-form
+      display: flex
+      flex-direction: column
+      width: calc(100% - 20px)
+
+      .login-form__header-container
+        display: flex
+        flex-direction: column
+
+        .login-form__header
+          padding: 10px
+          text-align: center
+
+
+      .login-form__nick-container
+        display: flex
+        flex-direction: column
+
+
+        .login-form__nick-label
+
+
+        .login-form__nick-input
+
+
+      .login-form__password-container
+        display: flex
+        flex-direction: column
+
+
+        .login-form__password-label
+
+
+        .login-form__password-input
+
+
+      .login-form__submit-container
+        display: flex
+        flex-direction: column
+
+
+        .login-form__submit-input
+          flex-grow: 1

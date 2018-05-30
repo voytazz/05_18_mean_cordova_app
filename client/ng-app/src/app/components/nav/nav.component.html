@@ -1,33 +1,38 @@
 
-<nav class="navbar">navbar
-  <div class="navbar__burger-menu-container" id="burger"><a class="navbar__burger-menu__link" (click)="showList(&quot;menu&quot;)">
-      <div><span></span><span></span><span></span></div></a>
-    <ul class="hide" id="menu">
-      <ng-container>
-        <ul>
-          <li><a id="home" (click)="routerLink($event)">{{ menuList.home }}</a></li>
-        </ul>
-      </ng-container>
-      <ng-container *ngIf="loggedIn">
-        <ul>
-          <li>Konto
-            <ul>
-              <li><a id="login" (click)="routerLink($event)">{{ menuList.login }}</a></li>
-              <li><a id="register" (click)="routerLink($event)">{{ menuList.register }}</a></li>
-            </ul>
-          </li>
-        </ul>
-      </ng-container>
-      <ng-container *ngIf="!loggedIn">
-        <ul>
-          <li>Notatki
-            <ul>
-              <li><a id="profile" (click)="routerLink($event)">{{ menuList.profile }}</a></li>
-              <li><a id="logout" (click)="onLogOut()">{{ menuList.logout }}</a></li>
-            </ul>
-          </li>
-        </ul>
-      </ng-container>
-    </ul>
+<section class="nav">
+  <div class="nav-success__container hidden animation-ctr" id="navSuccessMessageContainer">
+    <div class="nav-success__header-container opacity-0 animation-ctr" id="navSuccessMessage">
+      <h2 class="nav-success__header">{{ messageLogOut[0] }}</h2>
+      <h2 class="nav-success__header">{{ messageLogOut[1] }}</h2>
+    </div>
   </div>
-</nav>
+  <nav class="navbar">
+    <div class="navbar-home__container">
+      <ul class="navbar-home__list">
+        <li class="navbar-home__list-item"><a class="navbar-home__link" id="home" (click)="routerLink(&quot;home&quot;)"><img class="navbar-home-img" src="assets/icons/home.svg"/></a></li>
+      </ul>
+    </div>
+    <div class="navbar-android__container">
+      <ul class="navbar-android__list">
+        <li class="navbar-android__list-item"><a class="navbar-android__link" id="home" [href]="androidUrl"><img class="navbar-android-img" src="assets/icons/android.svg"/></a></li>
+      </ul>
+    </div>
+    <div class="navbar-account__container">
+      <ul class="navbar-account__list">
+        <li class="navbar-account__list-item"><a class="navbar-account__link" id="accountBtn" (click)="accountLink(&quot;accountBtn&quot;)"><img class="navbar-account-img" src="assets/icons/user.svg"/>
+            <div class="navbar-account__sublist__container hidden animation-ctr" id="accountListContainer">
+              <ul class="navbar-account__sublist opacity-0 animation-ctr" id="accountList">
+                <ng-container *ngIf="!loggedIn()">
+                  <li class="navbar-account__login__list-item"><a class="navbar-account__login__link" id="login" (click)="routerLink(&quot;login&quot;)">{{ menuList.login }}</a></li>
+                  <li class="navbar-account__register__list-item"><a class="navbar-account__register__link" id="register" (click)="routerLink(&quot;register&quot;)">{{ menuList.register }}</a></li>
+                </ng-container>
+                <ng-container *ngIf="loggedIn()">
+                  <li class="navbar-account__profile__list-item"><a class="navbar-account__profile__link" id="profile" (click)="routerLink(&quot;profile&quot;)">{{ menuList.profile }}</a></li>
+                  <li class="navbar-account__logout__list-item"><a class="navbar-account__logout__link" id="logout" (click)="onLogOut(&quot;logout&quot;)">{{ menuList.logout }}</a></li>
+                </ng-container>
+              </ul>
+            </div></a></li>
+      </ul>
+    </div>
+  </nav>
+</section>

@@ -11,7 +11,6 @@ import { NavComponent } from './components/nav/nav.component'
 import { LoginComponent } from './components/pages/login/login.component'
 import { RegisterComponent } from './components/pages/register/register.component'
 import { ProfileComponent } from './components/pages/profile/profile.component'
-import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -20,8 +19,7 @@ import { FooterComponent } from './components/footer/footer.component'
     NavComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent,
-    FooterComponent
+    ProfileComponent
   ],
   imports: [
     HttpModule,

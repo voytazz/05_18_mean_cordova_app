@@ -8,6 +8,17 @@ import 'rxjs/add/operator/map'
 export class AuthService {
   authToken: any
   user: any
+  url = location.pathname.replace('/', '')
+  logged: boolean
+  //  prod
+  //prodUrl = 'http://localhost:8080/'
+  //----------------------------------
+  //  heroku
+  //prodUrl = ''
+  //----------------------------------
+  //  cordova
+  prodUrl = 'https://notemy-app.herokuapp.com/'
+  //----------------------------------
 
   constructor(private http: Http) {}
 
@@ -15,7 +26,7 @@ export class AuthService {
     const header = new Headers()
     header.append('Content-Type', 'application/json')
     return this.http
-      .post(`http://localhost:8080/${url}`, user, {
+      .post(`${this.prodUrl}${url}`, user, {
         headers: header
       })
       .map(res => res.json())
@@ -25,7 +36,7 @@ export class AuthService {
     const header = new Headers()
     header.append('Content-Type', 'application/json')
     return this.http
-      .get(`http://localhost:8080/${url}`, {
+      .get(`${this.prodUrl}${url}`, {
         headers: header
       })
       .map(res => res.json())
@@ -38,14 +49,14 @@ export class AuthService {
     header.append('Authorization', this.authToken)
     header.append('Content-Type', 'application/json')
     return this.http
-      .get(`http://localhost:8080/server/profile`, { headers: header })
+      .get(`${this.prodUrl}server/profile`, { headers: header })
       .map(res => res.json())
   }
 
   loggedIn() {
-    console.log(localStorage.getItem('id_token'))
     return localStorage.getItem('id_token')
   }
+
   loadToken() {
     const token = localStorage.getItem('id_token')
     this.authToken = token
@@ -59,8 +70,23 @@ export class AuthService {
   }
 
   loguot() {
-    this.authToken = null
-    this.user = null
-    localStorage.clear()
+    if (this.logged) {
+      this.logged = false
+      this.authToken = null
+      this.user = null
+      localStorage.clear()
+    }
+  }
+
+  sendNote(note) {
+    const header = new Headers()
+    header.append('Content-Type', 'application/json')
+    return this.http
+      .post(`${this.prodUrl}server/addnote`, note, { headers: header })
+      .map(res => res.json())
+  }
+
+  getAllNotes() {
+    return this.http.get(`${this.prodUrl}server/home`).map(res => res.json())
   }
 }

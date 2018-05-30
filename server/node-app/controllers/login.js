@@ -5,12 +5,10 @@ const mongo_1 = require("../db/mongo");
 const userModel_1 = require("../models/userModel");
 class Login {
     login(req, res, next) {
-        console.log(req.body);
         const newUser = {
             nick: req.body.nick,
             password: req.body.password
         };
-        console.log(newUser);
         userModel_1.default.getUserByNick(newUser, (err, user) => {
             if (err)
                 throw err;

@@ -1,6 +1,9 @@
-app-nav
-//- button#btn((click)='onClickButton()')
-//-   | Clik
-//- a(href='http://localhost:8080/server/android')
-//-   | Android
-router-outlet
+div.app-backgound__container
+  //-src = '../assets/images/bg1.jpg'
+  img.app-backgound__img(
+    src = 'assets/images/bg1.jpg'
+  )
+main.app-layout__container
+  app-nav.app-layout__nav
+  section.app-layout__content
+    router-outlet

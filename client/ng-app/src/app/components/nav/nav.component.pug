@@ -1,70 +1,124 @@
-nav.navbar
-  | navbar
+section.nav
   //----------------------------
-  //- BURGER MENU
+  //-
+  //-   MESSAGE
+  //-
   //----------------------------
-  div.navbar__burger-menu-container(
-      id='burger'
-    )
-    a.navbar__burger-menu__link(
-        (click)='showList("menu")'
+  div.nav-success__container.hidden.animation-ctr(
+        id = 'navSuccessMessageContainer'
       )
-      div
-        span
-        span
-        span
-    //--------------------------
-    //- MENU
-    //--------------------------
-    ul.hide(
-        id='menu'
+    div.nav-success__header-container.opacity-0.animation-ctr(
+        id = 'navSuccessMessage'
       )
-      //--------------------------
-      //- ROUTING LOOP LIST
-      //--------------------------
-      ng-container
-        ul
-          li
-            a(
-                id = 'home',
-                (click) = 'routerLink($event)'
+      h2.nav-success__header
+        | {{ messageLogOut[0] }}
+      h2.nav-success__header
+        | {{ messageLogOut[1] }}
+  //----------------------------
+  //-
+  //-   MENU
+  //-
+  //----------------------------
+  nav.navbar
+    //----------------------------
+    //-
+    //-   HOME
+    //-
+    //----------------------------
+    div.navbar-home__container
+      ul.navbar-home__list
+        li.navbar-home__list-item
+          a.navbar-home__link(
+              id = 'home',
+              (click) = 'routerLink("home")'
+            )
+            //-src = '../../../assets/icons/home.svg'
+            img.navbar-home-img(
+              src = 'assets/icons/home.svg'
+            )
+    //----------------------------
+    //-
+    //-   ANDROID
+    //-
+    //----------------------------
+    div.navbar-android__container
+      ul.navbar-android__list
+        li.navbar-android__list-item
+          a.navbar-android__link(
+              id = 'home',
+              [href]='androidUrl'
+            )
+            //-src = '../../../assets/icons/android.svg'
+            img.navbar-android-img(
+              src = 'assets/icons/android.svg'
+            )
+    //----------------------------
+    //-
+    //-   KONTO
+    //-
+    //----------------------------
+    div.navbar-account__container
+      ul.navbar-account__list
+        li.navbar-account__list-item
+          a.navbar-account__link(
+              id = 'accountBtn',
+              (click) = 'accountLink("accountBtn")'
+            )
+            //-src = '../../../assets/icons/user.svg'
+            img.navbar-account-img(
+              src = 'assets/icons/user.svg'
+            )
+            div.navbar-account__sublist__container.hidden.animation-ctr(
+                id = 'accountListContainer'
               )
-              | {{ menuList.home }}
-      ng-container(
-          *ngIf='loggedIn'
-        )
-        ul
-          li
-            | Konto
-            ul
-              li
-                a(
-                    id = 'login',
-                    (click) = 'routerLink($event)'
-                  )
-                  | {{ menuList.login }}
-              li
-                a(
-                    id = 'register',
-                    (click) = 'routerLink($event)'
-                  )
-                  | {{ menuList.register }}
-      ng-container(
-        *ngIf='!loggedIn'
-        )
-        ul
-          li
-            | Notatki
-            ul
-              li
-                a(
-                    id = 'profile',
-                    (click) = 'routerLink($event)'
-                  )
-                  | {{ menuList.profile }}
-              li
-                a(
-                    id = 'logout',
-                    (click) = 'onLogOut()'
-                  )
-                  | {{ menuList.logout }}
+              ul.navbar-account__sublist.opacity-0.animation-ctr(
+                  id = 'accountList'
+                )
+                ng-container(*ngIf='!loggedIn()')
+                  //----------------------------
+                  //-
+                  //-   LOGIN
+                  //-
+                  //----------------------------
+                  li.navbar-account__login__list-item
+                    a.navbar-account__login__link(
+                        id = 'login',
+                        (click) = 'routerLink("login")'
+                      )
+                      | {{ menuList.login }}
+                  //----------------------------
+                  //-
+                  //-   REGISTER
+                  //-
+                  //----------------------------
+                  li.navbar-account__register__list-item
+                    a.navbar-account__register__link(
+                        id = 'register',
+                        (click) = 'routerLink("register")'
+                      )
+                      | {{ menuList.register }}
+                ng-container(*ngIf='loggedIn()')
+                  //----------------------------
+                  //-
+                  //-   PROFILE
+                  //-
+                  //----------------------------
+                  li.navbar-account__profile__list-item
+                    a.navbar-account__profile__link(
+                        id = 'profile',
+                        (click) = 'routerLink("profile")'
+                      )
+                      | {{ menuList.profile }}
+                  //----------------------------
+                  //-
+                  //-   LOGOUT
+                  //-
+                  //----------------------------
+                  li.navbar-account__logout__list-item
+                    a.navbar-account__logout__link(
+                        id = 'logout',
+                        (click) = 'onLogOut("logout")'
+                      )
+                      | {{ menuList.logout }}
+
+

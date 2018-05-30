@@ -1,3 +1,18 @@
-<p>
-  profile works!
-</p>
+
+<section class="profile">
+  <div class="add-note-success__container hidden animation-ctr" id="successMessageContainer">
+    <div class="add-note-success__header-container opacity-0 animation-ctr" id="successMessage">
+      <h2 class="add-note-success__header">{{ message[0] }}</h2>
+      <h2 class="add-note-success__header">{{ message[1] }}</h2>
+    </div>
+  </div>
+  <div class="add-note-form-container opacity-0 animation-ctr" id="page">
+    <form class="add-note-form" (submit)="onAddNoteSubmit()">
+      <h2 class="add-note-form__title">Dodaj notatkę</h2>
+      <input class="add-note-form__header-input" type="text" placeholder="Tytuł" name="title" [(ngModel)]="title"/>
+      <input class="add-note-form__subject-input" type="text" placeholder="Przedmiot" name="subject" [(ngModel)]="subject"/>
+      <textarea class="add-note-form__content-textarea" placeholder="Treść" rows="6" cols="50" name="content" [(ngModel)]="content"></textarea>
+      <input class="add-note-form__submit" type="submit" value="Wyślij"/>
+    </form>
+  </div>
+</section>

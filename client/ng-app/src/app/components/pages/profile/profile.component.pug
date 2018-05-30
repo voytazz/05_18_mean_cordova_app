@@ -1,0 +1,77 @@
+section.profile
+  //----------------------------
+  //-
+  //-   MESSAGE
+  //-
+  //----------------------------
+  div.add-note-success__container.hidden.animation-ctr(
+        id = 'successMessageContainer'
+      )
+    div.add-note-success__header-container.opacity-0.animation-ctr(
+        id = 'successMessage'
+      )
+      h2.add-note-success__header
+        | {{ message[0] }}
+      h2.add-note-success__header
+        | {{ message[1] }}
+  //----------------------------
+  //-
+  //-   ADD NOTE FORM
+  //-
+  //----------------------------
+  div.add-note-form-container.opacity-0.animation-ctr(
+      id = 'page'
+    )
+    form.add-note-form(
+        (submit) = 'onAddNoteSubmit()'
+      )
+      //----------------------------
+      //-
+      //-   HEADER
+      //-
+      //----------------------------
+      h2.add-note-form__title
+        | Dodaj notatkę
+      //----------------------------
+      //-
+      //-   TITLE
+      //-
+      //----------------------------
+      input.add-note-form__header-input(
+          type = 'text',
+          placeholder = 'Tytuł',
+          name = 'title',
+          [(ngModel)] = 'title'
+        )
+      //----------------------------
+      //-
+      //-   SUBJECT
+      //-
+      //----------------------------
+      input.add-note-form__subject-input(
+          type = 'text',
+          placeholder = 'Przedmiot',
+          name = 'subject',
+          [(ngModel)] = 'subject'
+        )
+      //----------------------------
+      //-
+      //-   CONTENT
+      //-
+      //----------------------------
+      textarea.add-note-form__content-textarea(
+          placeholder = 'Treść',
+          rows = '6',
+          cols = '50',
+          name = 'content',
+          [(ngModel)] = 'content'
+        )
+      //----------------------------
+      //-
+      //-   SUBMIT
+      //-
+      //----------------------------
+      input.add-note-form__submit(
+          type='submit',
+          value = 'Wyślij'
+        )
